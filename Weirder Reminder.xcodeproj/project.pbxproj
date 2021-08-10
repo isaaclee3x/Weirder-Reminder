@@ -15,6 +15,7 @@
 		FF943B1326C240F200722300 /* Weirder_ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B1226C240F200722300 /* Weirder_ReminderUITests.swift */; };
 		FF943B2126C2414600722300 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B2026C2414600722300 /* Reminder.swift */; };
 		FF943B2326C24F0A00722300 /* NewReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B2226C24F0A00722300 /* NewReminderView.swift */; };
+		FF943B2826C25BED00722300 /* ReminderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B2726C25BED00722300 /* ReminderData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FF943B1426C240F200722300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF943B2026C2414600722300 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		FF943B2226C24F0A00722300 /* NewReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderView.swift; sourceTree = "<group>"; };
+		FF943B2726C25BED00722300 /* ReminderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				FF943AF726C240F000722300 /* ContentView.swift */,
 				FF943B2226C24F0A00722300 /* NewReminderView.swift */,
 				FF943B2026C2414600722300 /* Reminder.swift */,
+				FF943B2726C25BED00722300 /* ReminderData.swift */,
 				FF943AF926C240F200722300 /* Assets.xcassets */,
 				FF943AFE26C240F200722300 /* Info.plist */,
 				FF943AFB26C240F200722300 /* Preview Content */,
@@ -268,6 +271,7 @@
 				FF943B2126C2414600722300 /* Reminder.swift in Sources */,
 				FF943AF826C240F000722300 /* ContentView.swift in Sources */,
 				FF943AF626C240F000722300 /* Weirder_ReminderApp.swift in Sources */,
+				FF943B2826C25BED00722300 /* ReminderData.swift in Sources */,
 				FF943B2326C24F0A00722300 /* NewReminderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
