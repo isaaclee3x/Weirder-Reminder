@@ -7,4 +7,12 @@
 
 import Foundation
 
-
+
+struct Reminder: Identifiable, Equatable, Codable {
+    var id = UUID()
+    
+    var name: String
+    var isCompleted: Bool
+    
+    
+}
