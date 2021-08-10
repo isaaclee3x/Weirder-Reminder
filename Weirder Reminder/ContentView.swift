@@ -23,13 +23,21 @@ struct ContentView: View {
                 ForEach(reminders) { reminder in
                     Button {
 //                        Start of Button
+//                        Start of Action
                         let reminderIndex = reminders.firstIndex(of: reminder)!
                         reminders[reminderIndex].isCompleted.toggle()
-                        
+//                        End of Action
                     } label: {
-                        Text(reminder.name)
-                        
+//                       Start of Label
+                        HStack {
+//                            Start of HStack
+                            Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
+                            Text(reminder.name)
+                                .strikethrough(reminder.isCompleted)
+                        }
+//                        End of HStack
                     }
+//                    End of Label
 //                    End of Button
                 }
                 .onDelete { indexSet in
