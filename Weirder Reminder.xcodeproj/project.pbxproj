@@ -13,6 +13,7 @@
 		FF943AFD26C240F200722300 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF943AFC26C240F200722300 /* Preview Assets.xcassets */; };
 		FF943B0826C240F200722300 /* Weirder_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B0726C240F200722300 /* Weirder_ReminderTests.swift */; };
 		FF943B1326C240F200722300 /* Weirder_ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B1226C240F200722300 /* Weirder_ReminderUITests.swift */; };
+		FF943B2126C2414600722300 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943B2026C2414600722300 /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		FF943B0E26C240F200722300 /* Weirder ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weirder ReminderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF943B1226C240F200722300 /* Weirder_ReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weirder_ReminderUITests.swift; sourceTree = "<group>"; };
 		FF943B1426C240F200722300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF943B2026C2414600722300 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				FF943AF526C240F000722300 /* Weirder_ReminderApp.swift */,
 				FF943AF726C240F000722300 /* ContentView.swift */,
+				FF943B2026C2414600722300 /* Reminder.swift */,
 				FF943AF926C240F200722300 /* Assets.xcassets */,
 				FF943AFE26C240F200722300 /* Info.plist */,
 				FF943AFB26C240F200722300 /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF943B2126C2414600722300 /* Reminder.swift in Sources */,
 				FF943AF826C240F000722300 /* ContentView.swift in Sources */,
 				FF943AF626C240F000722300 /* Weirder_ReminderApp.swift in Sources */,
 			);
