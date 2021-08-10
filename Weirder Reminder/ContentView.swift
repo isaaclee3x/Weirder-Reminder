@@ -34,11 +34,11 @@ struct ContentView: View {
                             Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
                             Text(reminder.name)
                                 .strikethrough(reminder.isCompleted)
+//                            End of HStack
                         }
-//                        End of HStack
+//                     End of Label & End of Button
                     }
-//                    End of Label
-//                    End of Button
+//                    End of ForEach
                 }
                 .onDelete { indexSet in
 //                    Start of onDelete
@@ -50,16 +50,14 @@ struct ContentView: View {
                     reminders.move(fromOffsets: source, toOffset: destination)
 //                    End of onMove
                 }
-                
-//                End of ForEach
+//                End of List
             }
             .navigationTitle("Reminders")
             .navigationBarItems(leading: EditButton())
-//            End of List
+//            End of NavigationView
         }
-//        End of NavigationView
-    }
 //    End of Body
+    }
     
 }
 
