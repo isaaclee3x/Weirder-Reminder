@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+//    State vars here
+    @State private var reminders = [Reminder(name: "CACA", isCompleted: false)]
+    
+//    Start of body
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+//        Start of NavigationView
+        NavigationView {
+//            Start of List
+            List {
+//                Start of ForEach
+//                This is so that we can implement the onDelete and onMove functions
+                ForEach(reminders) { reminder in
+                    
+                }
+            }
+        }
     }
 }
 
