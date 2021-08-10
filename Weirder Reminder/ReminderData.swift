@@ -11,7 +11,7 @@ import SwiftUI
 class ReminderData: ObservableObject {
     @Published var reminders: [Reminder] = []
     
-    let sampleReminders = [Reminder(name: "TEsting", isCompleted: false)]
+    let sampleReminders = [Reminder(name: "Testing", isCompleted: false)]
     
     func getArchiveURL() -> URL {
         let plistName = "Reminders.plist"
