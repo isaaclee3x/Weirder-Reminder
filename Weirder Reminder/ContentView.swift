@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
+//    Binding vars here
+    @Binding var reminders: [Reminder]
+    
 //    State vars here
-    @State private var reminders = [Reminder(name: "CACA", isCompleted: false)]
+    @State var isSheetPresented = false
     
 //    Start of body
     var body: some View {
@@ -53,8 +56,19 @@ struct ContentView: View {
 //                End of List
             }
             .navigationTitle("Reminders")
-            .navigationBarItems(leading: EditButton())
+            .navigationBarItems(leading: EditButton(), trailing: Button {
+//                Start of Action
+                isSheetPresented = true
+//                End of Action
+            } label: {
+//                Start of Label
+                Image(systemName: "plus")
+//                End of Label
+            })
 //            End of NavigationView
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            NewReminderView(reminders: $reminders)
         }
 //    End of Body
     }
@@ -63,6 +77,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(reminders: .constant([Reminder(name: "CA", isCompleted: false)]))
     }
 }
