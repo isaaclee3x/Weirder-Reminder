@@ -13,7 +13,8 @@ struct ContentView: View {
     @Binding var reminders: [Reminder]
     
 //    State vars here
-    @State var isSheetPresented = false
+    @State var isSheetPresented1 = false
+    @State var isSheetPresented2 = false
     
 //    Start of body
     var body: some View {
@@ -56,19 +57,42 @@ struct ContentView: View {
 //                End of List
             }
             .navigationTitle("Reminders")
-            .navigationBarItems(leading: EditButton(), trailing: Button {
-//                Start of Action
-                isSheetPresented = true
-//                End of Action
-            } label: {
-//                Start of Label
-                Image(systemName: "plus")
-//                End of Label
-            })
+            .navigationBarItems(leading: EditButton(), trailing: HStack {
+//                Start of HStack
+                    Button {
+//                      Start of Action
+                        isSheetPresented1 = true
+//                      End of Action
+                    } label: {
+//                      Start of Label
+                        Image(systemName: "plus")
+//                      End of Label
+//                      End of Button
+                    }
+                
+                Menu {
+//                    Start of Menu
+//                    Start of Actions
+                    Button("Edit Reminder", action: {isSheetPresented2 = true})
+//                    End of Actions
+                } label: {
+//                    Start of Label
+                    Image(systemName: "ellipsis.circle")
+                        .offset(x: 15)
+//                    End of Label
+//                    End of Menu
+                }
+//                End of HStack
+            }
+            .padding()
+            )
 //            End of NavigationView
         }
-        .sheet(isPresented: $isSheetPresented) {
+        .sheet(isPresented: $isSheetPresented1) {
             NewReminderView(reminders: $reminders)
+        }
+        .sheet(isPresented: $isSheetPresented2) {
+            EditReminderView()
         }
 //    End of Body
     }
