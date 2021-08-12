@@ -9,13 +9,28 @@ import SwiftUI
 
 struct EditReminderView: View {
     
+    //    Binding vars here
+    @Binding var reminders: [Reminder]
+    @Binding var index: Int
+    
+    //    State vars here
+    @State var name = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                Section(header: Text("NAME")) {
+                    TextField(reminders[index].name, text: $name)
+                }
+            }
+            .navigationTitle("Edit Reminder")
+        }
     }
 }
 
+
 struct EditReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        EditReminderView()
+        EditReminderView(reminders: .constant([Reminder(name: "Ca", isCompleted: false)]), index: .constant(0))
     }
 }
