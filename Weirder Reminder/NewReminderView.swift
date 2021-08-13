@@ -32,7 +32,7 @@ struct NewReminderView: View {
                 Button {
 //                    Start of Button
 //                    Start of Action
-                    reminders.append(Reminder(name: name, isCompleted: false))
+                    reminders.append(Reminder(name: name, isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "ASA"))
                     scenePhase.wrappedValue.dismiss()
 //                    End of Action
                 } label: {
@@ -65,6 +65,6 @@ struct NewReminderView: View {
 
 struct NewReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        NewReminderView(reminders: .constant([Reminder(name: "DA", isCompleted: false)]))
+        NewReminderView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]))
     }
 }
