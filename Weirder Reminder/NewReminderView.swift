@@ -23,44 +23,56 @@ struct NewReminderView: View {
     @Environment(\.presentationMode) var scenePhase
     
     var body: some View {
-        Form {
-            Section(header: Text("Name")) {
-                TextField("Name", text: $name)
-            }
-            
-            Section(header: Text("Choose Tag")) {
-                Button(action: {isSheetPresented = true}, label: {
-                    Text("Choose Tags")
-                        .foregroundColor(.gray)
-                })
-                HStack {
-                    Text("Chosen Tag: ")
-                        .bold()
-                    Circle()
-                        .fill(Color.init(red: Double(r)!, green: Double(g)!, blue: Double(b)!))
-                        .frame(height: 15)
-                        .offset(x: -80)
-                    Text(tagString)
-                }
-            }
-            
-            Section {
-                Button {
-                    reminders.append(Reminder(name: name, isCompleted: false, tagColor: RGB(r: r, g: g, b: b), tagString: "ASA"))
-                    scenePhase.wrappedValue.dismiss()
-                } label: {
-                    Text("Save")
+        NavigationView {
+            Form {
+                Section(header: Text("Name")) {
+                    TextField("Name", text: $name)
                 }
                 
-                Button {
-                    scenePhase.wrappedValue.dismiss()
-                } label: {
-                    Text("Dismiss")
-                        .foregroundColor(.red)
+                Section(header: Text("Choose Tag")) {
+                    Button {
+                        isSheetPresented = true
+                    } label: {
+                        HStack {
+                            Text("Choose Tag")
+                                .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                                .offset(x: 220)
+                        }
+                    }
+                }
+                Section {
+                    HStack {
+                        Text("Chosen Tag: ")
+                            .bold()
+                        Circle()
+                            .fill(Color.init(red: Double(r)!, green: Double(g)!, blue: Double(b)!))
+                            .frame(height: 15)
+                            .offset(x: -80)
+                        Text(tagString)
+                    }
+                }
+                
+                Section {
+                    Button {
+                        reminders.append(Reminder(name: name, isCompleted: false, tagColor: RGB(r: r, g: g, b: b), tagString: tagString))
+                        scenePhase.wrappedValue.dismiss()
+                    } label: {
+                        Text("Save")
+                    }
+                    
+                    Button {
+                        scenePhase.wrappedValue.dismiss()
+                    } label: {
+                        Text("Dismiss")
+                            .foregroundColor(.red)
+                    }
                 }
             }
+            .navigationTitle("New Reminder")
         }
-        .sheet(isPresented: $isSheetPresented){
+        .sheet(isPresented: $isSheetPresented) {
             TagsView(reminders: $reminders, tags: $tags, r: $r, g: $g, b: $b, tagString: $tagString)
         }
     }

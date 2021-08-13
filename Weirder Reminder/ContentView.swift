@@ -27,6 +27,9 @@ struct ContentView: View {
                             reminders[reminderIndex].isCompleted.toggle()
                         } label: {
                             HStack {
+                                Circle()
+                                    .fill(Color.init(red: Double(reminder.tagColor.r)!, green: Double(reminder.tagColor.g)!, blue: Double(reminder.tagColor.b)!))
+                                    .frame(height: 15)
                                 Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
                                 Text(reminder.name)
                                     .strikethrough(reminder.isCompleted)
@@ -37,6 +40,7 @@ struct ContentView: View {
                                     isSheetPresented2 = true
                                 }, label: {
                                     Image(systemName: "ellipsis.circle")
+                                        .position(y: 10)
                                 })
                             }
                         }

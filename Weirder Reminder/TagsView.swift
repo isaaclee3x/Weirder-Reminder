@@ -17,6 +17,7 @@ struct TagsView: View {
     @Binding var b: String
     @Binding var tagString: String
     
+    @Environment(\.presentationMode) var scenePhase
     var body: some View {
         NavigationView {
             List {
@@ -26,26 +27,32 @@ struct TagsView: View {
                             let tagIndex = tags.firstIndex(of: tag)!
                             tags[tagIndex].isChosen.toggle()
                             
-                            if tag.isChosen == true {
+                            if tags[tagIndex].isChosen == true {
                                 r = tag.tagColor.r
                                 g = tag.tagColor.g
                                 b = tag.tagColor.b
                                 tagString = tag.tagString
+                                scenePhase.wrappedValue.dismiss()
                             }
-                            
                         } label: {
                             HStack {
                                 Circle()
                                     .fill(Color(red: Double(tag.tagColor.r)!, green: Double(tag.tagColor.g)!, blue: Double(tag.tagColor.b)!))
                                     .frame(height: 15)
-                                    .offset(x: -120)
+                                    .offset(x: -130)
                                 Text(tag.tagString)
-                                    .offset(x: -240)
+                                    .offset(x: -260)
                                 Image(systemName: tag.isChosen ? "checkmark.circle" : "circle")
                                     .offset(x: -20)
                             }
                         }
                     }
+                }
+                .onDelete { indexSet in
+                    tags.remove(atOffsets: indexSet)
+                }
+                .onMove { source, destination in
+                    tags.move(fromOffsets: source, toOffset: destination)
                 }
             }
             .navigationTitle("Tags")
