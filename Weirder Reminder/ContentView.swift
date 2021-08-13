@@ -12,7 +12,10 @@ struct ContentView: View {
     @Binding var reminders: [Reminder]
     @Binding var tags: [Tag]
     
-    @State var isSheetPresented = false
+    @State var isSheetPresented1 = false
+    @State var isSheetPresented2 = false
+    
+    @State var index = 0
     
     var body: some View {
         NavigationView {
@@ -29,6 +32,15 @@ struct ContentView: View {
                                     .strikethrough(reminder.isCompleted)
                             }
                         }
+                        Button {
+                            let reminderIndex = reminders.firstIndex(of: reminder)!
+                            index = reminderIndex
+                            isSheetPresented2 = true
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                .position(x: 270, y: 10)
+                        }
                     }
                 }
                 .onDelete { indexSet in
@@ -40,14 +52,17 @@ struct ContentView: View {
             }
             .navigationTitle("Reminders")
             .navigationBarItems(leading: EditButton(), trailing: Button {
-                isSheetPresented = true
+                isSheetPresented1 = true
             } label: {
                 Image(systemName: "plus")
             })
         }
-        .sheet(isPresented: $isSheetPresented) {
+        .sheet(isPresented: $isSheetPresented1) {
             NewReminderView(reminders: $reminders, tags: $tags)
         }
+        .sheet(isPresented: $isSheetPresented2, content: {
+            EditReminderView(reminders: $reminders, index: $index)
+        })
     }
 }
 

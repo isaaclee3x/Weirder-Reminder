@@ -12,6 +12,11 @@ struct TagsView: View {
     @Binding var reminders: [Reminder]
     @Binding var tags: [Tag]
     
+    @Binding var r: String
+    @Binding var g: String
+    @Binding var b: String
+    @Binding var tagString: String
+    
     var body: some View {
         NavigationView {
             List {
@@ -20,6 +25,14 @@ struct TagsView: View {
                         Button {
                             let tagIndex = tags.firstIndex(of: tag)!
                             tags[tagIndex].isChosen.toggle()
+                            
+                            if tag.isChosen == true {
+                                r = tag.tagColor.r
+                                g = tag.tagColor.g
+                                b = tag.tagColor.b
+                                tagString = tag.tagString
+                            }
+                            
                         } label: {
                             HStack {
                                 Circle()
@@ -36,13 +49,17 @@ struct TagsView: View {
                 }
             }
             .navigationTitle("Tags")
-            .navigationBarItems(leading: EditButton())
+            .navigationBarItems(leading: EditButton(), trailing: Button {
+                
+            } label: {
+                Image(systemName: "plus")
+            })
         }
     }
 }
 
 struct TagsView_Previews: PreviewProvider {
     static var previews: some View {
-        TagsView(reminders: .constant([Reminder(name: "AC", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD", isChosen: false)]))
+        TagsView(reminders: .constant([Reminder(name: "AC", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD", isChosen: false)]), r: .constant("0"), g: .constant("1"), b: .constant("0"), tagString: .constant("BABA"))
     }
 }
