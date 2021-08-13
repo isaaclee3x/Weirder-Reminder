@@ -21,8 +21,15 @@ struct NewReminderView: View {
             Section(header: Text("Name")) {
                 TextField("Name", text: $name)
             }
+            
+            Section(header: Text("Choose Tag")) {
+                NavigationLink(
+                    destination: TagsView(reminders: $reminders, tags: $tags)) {
+                        Text("Choose Tags")
+                    }
+            }
+            
             Section {
-
                 Button {
                     reminders.append(Reminder(name: name, isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "ASA"))
                     scenePhase.wrappedValue.dismiss()
@@ -43,6 +50,6 @@ struct NewReminderView: View {
 
 struct NewReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        NewReminderView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]))
+        NewReminderView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD", isChosen: false)]))
     }
 }

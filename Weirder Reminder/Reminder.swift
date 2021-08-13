@@ -24,6 +24,7 @@ struct Tag: Identifiable, Codable, Equatable {
     
     var tagColor: RGB
     var tagString: String
+    var isChosen: Bool
 }
 
 struct RGB: Identifiable, Codable, Equatable {

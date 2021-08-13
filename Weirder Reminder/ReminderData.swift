@@ -47,7 +47,7 @@ class ReminderData: ObservableObject {
 class TagsData: ObservableObject {
     @Published var tags: [Tag] = []
     
-    let sampletags = [Tag(tagColor: RGB(r: "0", g: "0", b: "0"), tagString: "Default")]
+    let sampletags = [Tag(tagColor: RGB(r: "0", g: "0", b: "0"), tagString: "Default", isChosen: false)]
     
     func getArchiveURL() -> URL {
         let plistName = "Tags.plist"
