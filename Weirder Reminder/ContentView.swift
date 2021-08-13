@@ -11,10 +11,10 @@ struct ContentView: View {
     
     @Binding var reminders: [Reminder]
     @Binding var tags: [Tag]
-    
+   
     @State var isSheetPresented1 = false
     @State var isSheetPresented2 = false
-    
+
     @State var index = 0
     
     var body: some View {
@@ -34,14 +34,14 @@ struct ContentView: View {
                                 Text(reminder.name)
                                     .strikethrough(reminder.isCompleted)
                                     .frame(width: 270, height: 20, alignment: .leading)
-                                Button(action: {
+                                Button {
                                     let reminderIndex = reminders.firstIndex(of: reminder)!
                                     index = reminderIndex
                                     isSheetPresented2 = true
-                                }, label: {
+                                } label: {
                                     Image(systemName: "ellipsis.circle")
                                         .position(y: 10)
-                                })
+                                }
                             }
                         }
                     }
@@ -66,6 +66,7 @@ struct ContentView: View {
         .sheet(isPresented: $isSheetPresented2, content: {
             EditReminderView(reminders: $reminders, index: $index)
         })
+
     }
 }
 
