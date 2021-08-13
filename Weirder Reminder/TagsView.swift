@@ -17,6 +17,8 @@ struct TagsView: View {
     @Binding var b: String
     @Binding var tagString: String
     
+    @State var isSheetPresented = false
+    
     @Environment(\.presentationMode) var scenePhase
     var body: some View {
         NavigationView {
@@ -57,11 +59,14 @@ struct TagsView: View {
             }
             .navigationTitle("Tags")
             .navigationBarItems(leading: EditButton(), trailing: Button {
-                
+                isSheetPresented = true
             } label: {
                 Image(systemName: "plus")
             })
         }
+        .sheet(isPresented: $isSheetPresented, content: {
+            NewTagView(tags: $tags, tagString: tagString)
+        })
     }
 }
 
