@@ -46,11 +46,13 @@ struct NewReminderView: View {
                     HStack {
                         Text("Chosen Tag: ")
                             .bold()
+                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Circle()
                             .fill(Color.init(red: Double(r)!, green: Double(g)!, blue: Double(b)!))
                             .frame(height: 15)
-                            .offset(x: -80)
+                            .offset(x: 20)
                         Text(tagString)
+                            .frame(width: 150, height: 30, alignment: .leading)
                     }
                 }
                 
