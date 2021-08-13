@@ -41,7 +41,7 @@ struct ContentView: View {
                             Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
                             Text(reminder.name)
                                 .strikethrough(reminder.isCompleted)
-                                .frame(width: 250, height: 20, alignment: .leading)
+                                .frame(width: 290, height: 20, alignment: .leading)
                             Button(action: {
 //                                Start of Button
 //                                Start of Action
@@ -52,7 +52,8 @@ struct ContentView: View {
                             }, label: {
 //                                Start of Label
                                 Image(systemName: "ellipsis.circle")
-                                    .frame(width: 50, height: 25, alignment: .trailing)
+                                    .frame(width: 20, height: 25, alignment: .center)
+                                    
                             })
 //                            End of HStack
                         }
