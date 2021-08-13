@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF2F249726C6AE8B0044AA27 /* EditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F249626C6AE8B0044AA27 /* EditReminderView.swift */; };
 		FF2F249926C6B00F0044AA27 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F249826C6B00F0044AA27 /* TagsView.swift */; };
+		FF2F249B26C6CBAD0044AA27 /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F249A26C6CBAD0044AA27 /* NewTagView.swift */; };
 		FF943AF626C240F000722300 /* Weirder_ReminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943AF526C240F000722300 /* Weirder_ReminderApp.swift */; };
 		FF943AF826C240F000722300 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF943AF726C240F000722300 /* ContentView.swift */; };
 		FF943AFA26C240F200722300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF943AF926C240F200722300 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		FF2F249626C6AE8B0044AA27 /* EditReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderView.swift; sourceTree = "<group>"; };
 		FF2F249826C6B00F0044AA27 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		FF2F249A26C6CBAD0044AA27 /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
 		FF943AF226C240F000722300 /* Weirder Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weirder Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF943AF526C240F000722300 /* Weirder_ReminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weirder_ReminderApp.swift; sourceTree = "<group>"; };
 		FF943AF726C240F000722300 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				FF943AF526C240F000722300 /* Weirder_ReminderApp.swift */,
 				FF2F249626C6AE8B0044AA27 /* EditReminderView.swift */,
 				FF943AF726C240F000722300 /* ContentView.swift */,
+				FF2F249A26C6CBAD0044AA27 /* NewTagView.swift */,
 				FF2F249826C6B00F0044AA27 /* TagsView.swift */,
 				FF943B2226C24F0A00722300 /* NewReminderView.swift */,
 				FF943B2026C2414600722300 /* Reminder.swift */,
@@ -278,6 +281,7 @@
 				FF943B2126C2414600722300 /* Reminder.swift in Sources */,
 				FF2F249926C6B00F0044AA27 /* TagsView.swift in Sources */,
 				FF943AF826C240F000722300 /* ContentView.swift in Sources */,
+				FF2F249B26C6CBAD0044AA27 /* NewTagView.swift in Sources */,
 				FF943AF626C240F000722300 /* Weirder_ReminderApp.swift in Sources */,
 				FF943B2826C25BED00722300 /* ReminderData.swift in Sources */,
 				FF943B2326C24F0A00722300 /* NewReminderView.swift in Sources */,
