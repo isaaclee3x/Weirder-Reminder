@@ -11,6 +11,7 @@ struct EditReminderView: View {
     
     //    Binding vars here
     @Binding var reminders: [Reminder]
+
     @Binding var index: Int
     
     //    State vars here
@@ -26,6 +27,10 @@ struct EditReminderView: View {
                     TextField(reminders[index].name, text: $name)
                 }
                 
+                Section(header: Text("Choose Tag")) {
+                    
+                }
+              
                 Section {
                     Button {
                         reminders[index].name = name
@@ -51,6 +56,6 @@ struct EditReminderView: View {
 
 struct EditReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        EditReminderView(reminders: .constant([Reminder(name: "Ca", isCompleted: false)]), index: .constant(0))
+        EditReminderView(reminders: .constant([Reminder(name: "ACA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "ASa")]), index: .constant(0))
     }
 }
