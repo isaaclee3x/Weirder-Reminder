@@ -11,6 +11,7 @@ struct EditReminderView: View {
     
     //    Binding vars here
     @Binding var reminders: [Reminder]
+    
     @Binding var index: Int
     
     //    State vars here
@@ -27,7 +28,7 @@ struct EditReminderView: View {
                 }
                 
                 Section(header: Text("Choose Tag")) {
-                
+                    
                 }
                 Section {
                     Button {

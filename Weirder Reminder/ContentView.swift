@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Binding var reminders: [Reminder]
+    @Binding var tags: [Tag]
     
     @State var isSheetPresented = false
     
@@ -17,14 +18,16 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(reminders) { reminder in
-                    Button {
-                        let reminderIndex = reminders.firstIndex(of: reminder)!
-                        reminders[reminderIndex].isCompleted.toggle()
-                    } label: {
-                        HStack {
-                            Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
-                            Text(reminder.name)
-                                .strikethrough(reminder.isCompleted)
+                    HStack {
+                        Button {
+                            let reminderIndex = reminders.firstIndex(of: reminder)!
+                            reminders[reminderIndex].isCompleted.toggle()
+                        } label: {
+                            HStack {
+                                Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
+                                Text(reminder.name)
+                                    .strikethrough(reminder.isCompleted)
+                            }
                         }
                     }
                 }
@@ -43,13 +46,13 @@ struct ContentView: View {
             })
         }
         .sheet(isPresented: $isSheetPresented) {
-            NewReminderView(reminders: $reminders)
+            NewReminderView(reminders: $reminders, tags: $tags)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]))
+        ContentView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]))
     }
 }

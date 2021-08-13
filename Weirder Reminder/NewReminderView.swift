@@ -10,6 +10,7 @@ import SwiftUI
 struct NewReminderView: View {
 
     @Binding var reminders: [Reminder]
+    @Binding var tags: [Tag]
     
     @State var name = ""
     
@@ -42,6 +43,6 @@ struct NewReminderView: View {
 
 struct NewReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        NewReminderView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]))
+        NewReminderView(reminders: .constant([Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]))
     }
 }
