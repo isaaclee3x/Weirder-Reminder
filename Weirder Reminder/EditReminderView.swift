@@ -26,6 +26,9 @@ struct EditReminderView: View {
                     TextField(reminders[index].name, text: $name)
                 }
                 
+                Section(header: Text("Choose Tag")) {
+                
+                }
                 Section {
                     Button {
                         reminders[index].name = name
