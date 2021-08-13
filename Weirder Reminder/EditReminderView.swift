@@ -16,11 +16,31 @@ struct EditReminderView: View {
     //    State vars here
     @State var name = ""
     
+//    Environment vars here
+    @Environment (\.presentationMode) var scenePhase
+    
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("NAME")) {
                     TextField(reminders[index].name, text: $name)
+                }
+                
+                Section {
+                    Button {
+                        reminders[index].name = name
+                        scenePhase.wrappedValue.dismiss()
+                    } label: {
+                        Text("Edit")
+                        
+                    }
+                    Button {
+                        scenePhase.wrappedValue.dismiss()
+                    } label: {
+                        Text("Dismiss")
+                            .foregroundColor(.red)
+                        
+                    }
                 }
             }
             .navigationTitle("Edit Reminder")
