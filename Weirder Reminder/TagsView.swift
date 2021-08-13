@@ -26,16 +26,11 @@ struct TagsView: View {
                 ForEach(tags) { tag in
                     HStack {
                         Button {
-                            let tagIndex = tags.firstIndex(of: tag)!
-                            tags[tagIndex].isChosen.toggle()
-                            
-                            if tags[tagIndex].isChosen == true {
-                                r = tag.tagColor.r
-                                g = tag.tagColor.g
-                                b = tag.tagColor.b
-                                tagString = tag.tagString
-                                scenePhase.wrappedValue.dismiss()
-                            }
+                            r = tag.tagColor.r
+                            g = tag.tagColor.g
+                            b = tag.tagColor.b
+                            tagString = tag.tagString
+                            scenePhase.wrappedValue.dismiss()
                         } label: {
                             HStack {
                                 Circle()
@@ -44,8 +39,7 @@ struct TagsView: View {
                                     .offset(x: -130)
                                 Text(tag.tagString)
                                     .offset(x: -260)
-                                Image(systemName: tag.isChosen ? "checkmark.circle" : "circle")
-                                    .offset(x: -20)
+                                
                             }
                         }
                     }
@@ -53,12 +47,9 @@ struct TagsView: View {
                 .onDelete { indexSet in
                     tags.remove(atOffsets: indexSet)
                 }
-                .onMove { source, destination in
-                    tags.move(fromOffsets: source, toOffset: destination)
-                }
             }
             .navigationTitle("Tags")
-            .navigationBarItems(leading: EditButton(), trailing: Button {
+            .navigationBarItems(trailing: Button {
                 isSheetPresented = true
             } label: {
                 Image(systemName: "plus")
