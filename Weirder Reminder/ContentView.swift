@@ -30,16 +30,15 @@ struct ContentView: View {
                                 Image(systemName: reminder.isCompleted ? "checkmark.circle" : "circle")
                                 Text(reminder.name)
                                     .strikethrough(reminder.isCompleted)
+                                    .frame(width: 270, height: 20, alignment: .leading)
+                                Button(action: {
+                                    let reminderIndex = reminders.firstIndex(of: reminder)!
+                                    index = reminderIndex
+                                    isSheetPresented2 = true
+                                }, label: {
+                                    Image(systemName: "ellipsis.circle")
+                                })
                             }
-                        }
-                        Button {
-                            let reminderIndex = reminders.firstIndex(of: reminder)!
-                            index = reminderIndex
-                            isSheetPresented2 = true
-                        } label: {
-                            Image(systemName: "ellipsis.circle")
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                                .position(x: 270, y: 10)
                         }
                     }
                 }

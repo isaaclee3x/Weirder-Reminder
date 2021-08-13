@@ -19,6 +19,7 @@ struct NewReminderView: View {
     @State var b = "0"
     @State var tagString = ""
     
+    @State var isSheetPresented = false
     @Environment(\.presentationMode) var scenePhase
     
     var body: some View {
@@ -28,10 +29,10 @@ struct NewReminderView: View {
             }
             
             Section(header: Text("Choose Tag")) {
-                NavigationLink(
-                    destination: TagsView(reminders: $reminders, tags: $tags, r: $r, g: $g, b: $b, tagString: $tagString)) {
-                        Text("Choose Tags")
-                    }
+                Button(action: {isSheetPresented = true}, label: {
+                    Text("Choose Tags")
+                        .foregroundColor(.gray)
+                })
                 HStack {
                     Text("Chosen Tag: ")
                         .bold()
@@ -58,6 +59,9 @@ struct NewReminderView: View {
                         .foregroundColor(.red)
                 }
             }
+        }
+        .sheet(isPresented: $isSheetPresented){
+            TagsView(reminders: $reminders, tags: $tags, r: $r, g: $g, b: $b, tagString: $tagString)
         }
     }
 }

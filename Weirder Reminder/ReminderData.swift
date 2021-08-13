@@ -11,7 +11,7 @@ import SwiftUI
 class ReminderData: ObservableObject {
     @Published var reminders: [Reminder] = []
     
-    let sampleReminders = [Reminder(name: "CA", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "CA")]
+    let sampleReminders = [Reminder(name: "Testing", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "Default")]
     
     func getArchiveURL() -> URL {
         let plistName = "Reminders.plist"
@@ -47,7 +47,7 @@ class ReminderData: ObservableObject {
 class TagsData: ObservableObject {
     @Published var tags: [Tag] = []
     
-    let sampletags = [Tag(tagColor: RGB(r: "0", g: "0", b: "0"), tagString: "Default", isChosen: false)]
+    let sampletags = [Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "Default", isChosen: false)]
     
     func getArchiveURL() -> URL {
         let plistName = "Tags.plist"
