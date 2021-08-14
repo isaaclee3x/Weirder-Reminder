@@ -18,6 +18,7 @@ struct NewTagView: View {
     
     @State var isAlertPresented1 = false
     @State var isAlertPresented2 = false
+    @State var isAlertPresented3 = false
     
     @Environment(\.presentationMode) var scenePhase
     
@@ -55,17 +56,17 @@ struct NewTagView: View {
                         if r.rangeOfCharacter(from: alphanumChar) != nil || r.rangeOfCharacter(from: nonAlphanumChar) != nil || g.rangeOfCharacter(from: alphanumChar) != nil || g.rangeOfCharacter(from: nonAlphanumChar) != nil || b.rangeOfCharacter(from: alphanumChar) != nil || b.rangeOfCharacter(from: nonAlphanumChar) != nil {
                             isAlertPresented1 = true
                         }
-                        else if tagString == "" {
-                            tagString = "Blank"
-                            
+                        if tagString == "" {
+                            isAlertPresented3 = true
                         }
                         else if Double(r)!
                                     > 1 || Double(g)! > 1 || Double(b)! > 1 {
                             isAlertPresented2 = true
                         }
-                        
-                        tags.append(Tag(tagColor: RGB(r: r, g: g, b: b), tagString: tagString, isChosen: false))
-                        scenePhase.wrappedValue.dismiss()
+                        else {
+                            tags.append(Tag(tagColor: RGB(r: r, g: g, b: b), tagString: tagString, isChosen: false))
+                            scenePhase.wrappedValue.dismiss()
+                        }
                     } label: {
                         Text("Save")
                     }
@@ -78,17 +79,20 @@ struct NewTagView: View {
                     }
                 }
             }
-            .alert(isPresented: $isAlertPresented1) {
-                Alert.init(title: Text("Error"), message: Text("The can only be numbers"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
-            }
             .navigationTitle("New Tag")
-            
-            .alert(isPresented: $isAlertPresented2) {
-                Alert.init(title: Text("Error"), message: Text("Number Values are greater than 1"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
-            }
+        }
+        .alert(isPresented: $isAlertPresented1) {
+            Alert.init(title: Text("Error"), message: Text("There can only be numbers"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
+        }
+        .alert(isPresented: $isAlertPresented2) {
+            Alert.init(title: Text("Error"), message: Text("Number Values are greater than 1"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
+        }
+        .alert(isPresented: $isAlertPresented3){
+            Alert.init(title: Text("Error"), message: Text("There must be a tag name"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
         }
     }
 }
+
 
 struct NewTagView_Previews: PreviewProvider {
     static var previews: some View {
