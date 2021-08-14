@@ -14,9 +14,9 @@ struct EditReminderView: View {
     @Binding var index: Int
     
     @State var name = ""
-    @State var r = "0"
-    @State var g = "0"
-    @State var b = "0"
+    @State var r: String = "0"
+    @State var g: String = "0"
+    @State var b: String = "0"
     
     @State var tagString = ""
     @State var isSheetPresented = false
@@ -46,9 +46,22 @@ struct EditReminderView: View {
                 
                 Section {
                     HStack {
-                        Text("Chosen Tag: ")
+                        Text("Old Tag: ")
                             .bold()
-                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 100, height: 20, alignment: .center)
+                            .offset(x: -5)
+                        Circle()
+                            .fill(Color.init(red: Double(reminders[index].tagColor.r)!, green: Double(reminders[index].tagColor.g)!, blue: Double(reminders[index].tagColor.b)!))
+                            .frame(height: 15)
+                            .offset(x: 20)
+                        Text(reminders[index].tagString)
+                            .frame(width: 150, height: 30, alignment: .leading)
+                    }
+                    
+                    HStack {
+                        Text("New Tag: ")
+                            .bold()
+                            .frame(width: 100, height: 20, alignment: .center)
                         Circle()
                             .fill(Color.init(red: Double(r)!, green: Double(g)!, blue: Double(b)!))
                             .frame(height: 15)
@@ -60,11 +73,23 @@ struct EditReminderView: View {
                 
                 Section {
                     Button {
-                        reminders[index].name = name
-                        reminders[index].tagColor.r = r
-                        reminders[index].tagColor.g = r
-                        reminders[index].tagColor.b = r
-                        reminders[index].tagString = tagString
+                        if r == "0" || g == "0" || b == "0" {
+                            r = reminders[index].tagColor.r
+                            g = reminders[index].tagColor.g
+                            b = reminders[index].tagColor.b
+                        }
+                        else {
+                            reminders[index].tagColor.r = r
+                            reminders[index].tagColor.g = g
+                            reminders[index].tagColor.b = b
+                        }
+                        if name == "" {
+                            name = reminders[index].name
+                            reminders[index].name = name
+                        }
+                        else {
+                            reminders[index].name = name
+                        }
                         scenePhase.wrappedValue.dismiss()
                     } label: {
                         Text("Edit")
