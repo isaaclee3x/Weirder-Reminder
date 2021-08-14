@@ -64,7 +64,7 @@ struct ContentView: View {
             NewReminderView(reminders: $reminders, tags: $tags)
         }
         .sheet(isPresented: $isSheetPresented2, content: {
-            EditReminderView(reminders: $reminders, index: $index)
+            EditReminderView(reminders: $reminders, tags: $tags, index: $index)
         })
     }
 }
