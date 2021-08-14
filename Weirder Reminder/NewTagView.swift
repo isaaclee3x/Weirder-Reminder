@@ -77,11 +77,11 @@ struct NewTagView: View {
                             .foregroundColor(.red)
                     }
                 }
-                .navigationTitle("New Tag")
             }
             .alert(isPresented: $isAlertPresented1) {
                 Alert.init(title: Text("Error"), message: Text("The can only be numbers"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
             }
+            .navigationTitle("New Tag")
             
             .alert(isPresented: $isAlertPresented2) {
                 Alert.init(title: Text("Error"), message: Text("Number Values are greater than 1"), dismissButton: Alert.Button.destructive(Text("Dismiss")))
