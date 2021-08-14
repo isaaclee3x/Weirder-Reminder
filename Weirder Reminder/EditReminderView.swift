@@ -31,15 +31,11 @@ struct EditReminderView: View {
                 }
                 
                 Section(header: Text("Choose Tag")) {
-                    Button {
-                        isSheetPresented = true
-                    } label: {
+                    NavigationLink(
+                        destination: TagsView(reminders: $reminders, tags: $tags, r: $r, g: $g, b: $b, tagString: $tagString)){
                         HStack {
                             Text("Choose Tag")
                                 .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                                .offset(x: 220)
                         }
                     }
                 }
@@ -73,10 +69,12 @@ struct EditReminderView: View {
                 
                 Section {
                     Button {
-                        if r == "0" || g == "0" || b == "0" {
-                            r = reminders[index].tagColor.r
-                            g = reminders[index].tagColor.g
-                            b = reminders[index].tagColor.b
+                        if r == "0" && g == "0" && b == "0" {
+                            if tagString == "" {
+                                r = reminders[index].tagColor.r
+                                g = reminders[index].tagColor.g
+                                b = reminders[index].tagColor.b
+                            }
                         }
                         else {
                             reminders[index].tagColor.r = r

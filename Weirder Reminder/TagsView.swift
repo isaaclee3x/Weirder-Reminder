@@ -36,10 +36,9 @@ struct TagsView: View {
                                 Circle()
                                     .fill(Color(red: Double(tag.tagColor.r)!, green: Double(tag.tagColor.g)!, blue: Double(tag.tagColor.b)!))
                                     .frame(height: 15)
-                                    .offset(x: -130)
+                                    .position(x: 15, y: 12)
                                 Text(tag.tagString)
-                                    .offset(x: -260)
-                                
+                                    .frame(width: 310, height: 10, alignment: .leading)
                             }
                         }
                     }
@@ -63,6 +62,6 @@ struct TagsView: View {
 
 struct TagsView_Previews: PreviewProvider {
     static var previews: some View {
-        TagsView(reminders: .constant([Reminder(name: "AC", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD", isChosen: false)]), r: .constant("0"), g: .constant("1"), b: .constant("0"), tagString: .constant("BABA"))
+        TagsView(reminders: .constant([Reminder(name: "AC", isCompleted: false, tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD")]), tags: .constant([Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "DSD", isChosen: false), Tag(tagColor: RGB(r: "0", g: "1", b: "0"), tagString: "", isChosen: false)]), r: .constant("0"), g: .constant("1"), b: .constant("0"), tagString: .constant("BABA"))
     }
 }
