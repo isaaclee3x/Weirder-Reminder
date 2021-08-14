@@ -9,15 +9,11 @@ import SwiftUI
 
 struct EditReminderView: View {
     
-    //    Binding vars here
     @Binding var reminders: [Reminder]
-
     @Binding var index: Int
-    
-    //    State vars here
+
     @State var name = ""
     
-//    Environment vars here
     @Environment (\.presentationMode) var scenePhase
     
     var body: some View {
