@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		FF2F249726C6AE8B0044AA27 /* EditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F249626C6AE8B0044AA27 /* EditReminderView.swift */; };
 		FF2F249926C6B00F0044AA27 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F249826C6B00F0044AA27 /* TagsView.swift */; };
 		FF2F249B26C6CBAD0044AA27 /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2F249A26C6CBAD0044AA27 /* NewTagView.swift */; };
