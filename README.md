@@ -4,6 +4,8 @@ An app about reminders
 
 ## NOTICE:
 
-This app is still in **alpha** mode, though it is stable.
+This app is **in a stable version**, albeit with limited features
 
-Also xcode or a iphone should be used as the simulator
+_NOTICE_
+
+If you wish to run the app, **please download XCode**. It deals with SwiftUI.
